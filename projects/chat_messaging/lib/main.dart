@@ -1,4 +1,4 @@
-import 'package:chat_messaging/screens/welcome_screen.dart';
+import 'package:chat_messaging/screens/welcome/welcome_screen.dart';
 import 'package:chat_messaging/shared/theme/theme.dart';
 import 'package:flutter/material.dart';
 
