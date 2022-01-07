@@ -1,58 +1,21 @@
 import 'package:chat_messaging/core/constants.dart';
-import 'package:chat_messaging/shared/components/filled_outline_button.dart';
 import 'package:chat_messaging/shared/models/chat.model.dart';
 import 'package:flutter/material.dart';
-
-class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.fromLTRB(
-              kDefaultPadding, 0, kDefaultPadding, kDefaultPadding),
-          color: kPrimaryColor,
-          child: Row(
-            children: [
-              FillOutlineButton(press: () {}, text: 'Recent Message'),
-              const SizedBox(
-                width: kDefaultPadding,
-              ),
-              FillOutlineButton(
-                press: () {},
-                text: 'Active',
-                isFilled: false,
-              ),
-            ],
-          ),
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: chatsData.length,
-            itemBuilder: (context, index) => ChatCard(
-              chat: chatsData[index],
-            ),
-          ),
-        )
-      ],
-    );
-  }
-}
 
 class ChatCard extends StatelessWidget {
   const ChatCard({
     Key? key,
     required this.chat,
+    required this.press,
   }) : super(key: key);
 
   final Chat chat;
+  final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => {},
+      onTap: () => press,
       child: Padding(
         padding: const EdgeInsets.symmetric(
             horizontal: kDefaultPadding, vertical: kDefaultPadding * 0.75),
